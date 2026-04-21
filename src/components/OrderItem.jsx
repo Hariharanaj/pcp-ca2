@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const OrderItem = ({ order }) => {
-  const { orderId, customerName, restaurent, rating } = order;
+  const { orderId, customerName, restaurant, rating } = order;
   const displayId = orderId;
 
   return (
@@ -9,7 +9,7 @@ const OrderItem = ({ order }) => {
       <Link to={`/order/${displayId}`} style={{ textDecoration: "none", color: "inherit" }}>
         <h3>Order ID: {displayId}</h3>
         <p>Customer: {customerName || "unknown"}</p>
-        <p>Restaurant: {restaurent}</p>
+        <p>Restaurant: {restaurant}</p>
         {rating && <p>Rating: {rating} ⭐</p>}
       </Link>
     </div>

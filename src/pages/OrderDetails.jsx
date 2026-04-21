@@ -30,7 +30,7 @@ const OrderDetails = () => {
       <div className="details-card" style={{ border: "1px solid #333", padding: "15px", borderRadius: "5px" }}>
         <p><strong>Order ID:</strong> {order.orderId}</p>
         <p><strong>Customer:</strong> {order.customerName || "unknown"}</p>
-        <p><strong>Restaurant:</strong> {order.restaurent || "N/A"}</p>
+        <p><strong>Restaurant:</strong> {order.restaurant || "N/A"}</p>
         
         <h3>Items</h3>
         <ul style={{ listStyle: "none", padding: 0 }}>
