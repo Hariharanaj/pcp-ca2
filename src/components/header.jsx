@@ -5,24 +5,29 @@ function Header() {
   const location = useLocation();
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/favorites", label: "Favorites" },
+    { path: "/orders", label: "Orders" },
+    { path: "/filter", label: "Filter Orders" },
+    { path: "/stats", label: "Stats" },
   ];
 
   return (
-    <header className="app-header">
-      <div className="header-inner">
-        <Link to="/" className="logo">
-          <span className="logo-icon">🎬</span>
-          <span className="logo-text">Movie Wishlist</span>
+    <header className="app-header" style={{ padding: "10px", background: "#333", color: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div className="header-inner" style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
+        <Link to="/orders" className="logo" style={{ color: "#fff", textDecoration: "none", fontSize: "1.5rem", fontWeight: "bold" }}>
+          <span className="logo-icon">🍔</span>
+          <span className="logo-text"> Food Delivery</span>
         </Link>
 
-        <nav className="nav-links">
+        <nav className="nav-links" style={{ display: "flex", gap: "20px" }}>
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`nav-link ${location.pathname === link.path ? "active" : ""}`}
+              style={{
+                color: location.pathname === link.path ? "#ffcc00" : "#fff",
+                textDecoration: "none",
+                fontWeight: location.pathname === link.path ? "bold" : "normal"
+              }}
             >
               {link.label}
             </Link>
