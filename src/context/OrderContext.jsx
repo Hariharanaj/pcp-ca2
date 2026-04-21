@@ -15,8 +15,11 @@ export const OrderProvider = ({ children }) => {
         const tokenRes = await getToken();
         const data = await getDataset(tokenRes.token, tokenRes.dataUrl);
         
-        // Data cleaning/validation as requested (inconsistent/invalid entries)
-        const cleanedData = (data || []).filter(order => order && order.id);
+        // The dataset returned is an object with an 'orders' array
+        const ordersArray = data?.orders || [];
+        
+        // Data cleaning/validation as requested
+        const cleanedData = ordersArray.filter(order => order && (order.orderid || order.id));
         
         dispatch({ type: "SET_ORDERS", payload: cleanedData });
       } catch (err) {
