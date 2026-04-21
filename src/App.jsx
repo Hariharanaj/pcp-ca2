@@ -1,11 +1,11 @@
-import AppRouter from "./router/Approuter.jsx";
-import { MovieProvider } from "./context/Moviecontext.jsx";
+import AppRouter from "./router/AppRouter.jsx";
+import { OrderProvider } from "./context/OrderContext.jsx";
 
 function App() {
   return (
-    <MovieProvider>
+    <OrderProvider>
       <AppRouter />
-    </MovieProvider>
+    </OrderProvider>
   );
 }
 

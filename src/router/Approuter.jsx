@@ -1,24 +1,19 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
-
-import MainLayout from "../layout/Mainlayout.jsx";
-import Home from "../pages/Home.jsx";
-import Favorites from "../pages/Favorites.jsx";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Orders from "../pages/Orders.jsx";
+import OrderDetails from "../pages/OrderDetails.jsx";
+import Filter from "../pages/Filter.jsx";
+import Stats from "../pages/Stats.jsx";
 
 const AppRouter = () => {
   return (
     <Router>
-      <MainLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </MainLayout>
+      <Routes>
+        <Route path="/" element={<Navigate to="/orders" />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/order/:id" element={<OrderDetails />} />
+        <Route path="/filter" element={<Filter />} />
+        <Route path="/stats" element={<Stats />} />
+      </Routes>
     </Router>
   );
 };
