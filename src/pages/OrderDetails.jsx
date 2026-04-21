@@ -7,7 +7,7 @@ const OrderDetails = () => {
   const { orders } = useOrders();
 
   // Validate ID and find the order
-  const order = orders.find((o) => String(o.orderid || o.id) === String(id));
+  const order = orders.find((o) => String(o.orderId) === String(id));
 
   if (!order) {
     return (
@@ -28,7 +28,7 @@ const OrderDetails = () => {
     <div className="order-details-view" style={{ padding: "20px" }}>
       <h2>Order Detail View</h2>
       <div className="details-card" style={{ border: "1px solid #333", padding: "15px", borderRadius: "5px" }}>
-        <p><strong>Order ID:</strong> {order.orderid || order.id}</p>
+        <p><strong>Order ID:</strong> {order.orderId}</p>
         <p><strong>Customer:</strong> {order.customerName || "unknown"}</p>
         <p><strong>Restaurant:</strong> {order.restaurent || "N/A"}</p>
         
@@ -49,7 +49,7 @@ const OrderDetails = () => {
         <div style={{ background: "#f4f4f4", padding: "10px", marginTop: "20px" }}>
           <pre>
 {JSON.stringify({
-  orderid: order.orderid || order.id,
+  orderid: order.orderId,
   items: itemsWithSubtotals,
   totalamount: order.totalAmount || order.amount
 }, null, 2)}

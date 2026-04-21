@@ -18,8 +18,8 @@ export const OrderProvider = ({ children }) => {
         // The dataset returned is an object with an 'orders' array
         const ordersArray = data?.orders || [];
         
-        // Data cleaning/validation as requested
-        const cleanedData = ordersArray.filter(order => order && (order.orderid || order.id));
+        // Use orderId (Capital I) to match the real dataset
+        const cleanedData = ordersArray.filter(order => order && order.orderId);
         
         dispatch({ type: "SET_ORDERS", payload: cleanedData });
       } catch (err) {

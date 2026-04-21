@@ -21,6 +21,9 @@ const Orders = () => {
     const amount = order.totalAmount ?? order.amount;
     if (amount === undefined || amount === null || isNaN(Number(amount))) return false;
 
+    // 4. Must have a valid orderId
+    if (!order.orderId) return false;
+
     return true;
   });
 
@@ -29,7 +32,7 @@ const Orders = () => {
       <h1>Valid Food Delivery Orders</h1>
       <div className="orders-container">
         {validOrders.map((order) => (
-          <OrderItem key={order.orderid || order.id} order={order} />
+          <OrderItem key={order.orderId} order={order} />
         ))}
       </div>
     </div>

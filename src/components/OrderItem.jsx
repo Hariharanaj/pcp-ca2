@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 const OrderItem = ({ order }) => {
-  const { orderid, id, customerName, restaurent, rating } = order;
-  const displayId = orderid || id;
+  const { orderId, customerName, restaurent, rating } = order;
+  const displayId = orderId;
 
   return (
     <div className="order-card" data-testid="order-item" style={{ border: "1px solid #ccc", margin: "10px", padding: "10px", borderRadius: "8px" }}>
